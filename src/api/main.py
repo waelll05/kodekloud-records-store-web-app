@@ -238,7 +238,7 @@ async def metrics_middleware(request: Request, call_next):
 
 @app.get("/")
 async def root():
-    return {"message": "KodeKloud Record Store API is running1111!"}
+    return {"message": "KodeKloud Record Store API is running1111I222!"}
 
 @app.get("/metrics")
 async def metrics():
