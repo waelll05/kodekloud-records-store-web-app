@@ -116,7 +116,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          pip install --upgrade pip==25.2
+          python -m pip install --upgrade pip==26.0.1
           pip install -r src/requirements.txt
 
       # Step 2: Uncomment to add dependency vulnerability scanning
