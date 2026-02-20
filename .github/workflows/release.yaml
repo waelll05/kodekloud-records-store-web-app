@@ -175,23 +175,23 @@ jobs:
 
       # Step 3: Uncomment to add SBOM generation
       # 👇 Uncomment this section in Step 3: Software Bill of Materials
-      # - name: Generate Software Bill of Materials (SBOM)
-      #   run: |
-      #     curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-      #     syft . -o cyclonedx-json > sbom.json
-      #     echo "📋 SBOM generated with $(jq '.components | length' sbom.json) components"
+      - name: Generate Software Bill of Materials (SBOM)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+          syft . -o cyclonedx-json > sbom.json
+          echo "📋 SBOM generated with $(jq '.components | length' sbom.json) components"
 
-      # - name: Upload SBOM as Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: software-bill-of-materials
-      #     path: sbom.json
+      - name: Upload SBOM as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: software-bill-of-materials
+          path: sbom.json
 
-      # - name: Scan SBOM for Vulnerabilities
-      #   run: |
-      #     curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
-      #     grype sbom.json --fail-on high
-      #     echo "🔍 SBOM vulnerability scan completed"
+      - name: Scan SBOM for Vulnerabilities
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+          grype sbom.json --fail-on high
+          echo "🔍 SBOM vulnerability scan completed"
 
       - name: Get version from Git commit
         id: get_version
