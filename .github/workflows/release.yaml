@@ -1,11 +1,7 @@
 name: Progressive Config Management & Secure Release Pipeline
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - main
   workflow_dispatch:
