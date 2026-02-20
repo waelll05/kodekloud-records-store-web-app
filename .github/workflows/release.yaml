@@ -121,16 +121,16 @@ jobs:
 
       # Step 2: Uncomment to add dependency vulnerability scanning
       #👇 Uncomment this section in Step 2: Dependency Scanning
-      # - name: Install Security Tools
-      #   run: |
-      #     source venv/bin/activate
-      #     pip install pip-audit
+      - name: Install Security Tools
+         run: |
+           source venv/bin/activate
+           pip install pip-audit
 
-      # - name: Scan for Vulnerable Dependencies
-      #   run: |
-      #     source venv/bin/activate
-      #     pip-audit --ignore-vuln GHSA-4xh5-x5gv-qwph
-      #     echo "✅ No critical vulnerabilities found"
+      - name: Scan for Vulnerable Dependencies
+        run: |
+          source venv/bin/activate
+          pip-audit --ignore-vuln GHSA-4xh5-x5gv-qwph
+          echo "✅ No critical vulnerabilities found"
 
       - name: Build Application (Development Environment)
         run: |
