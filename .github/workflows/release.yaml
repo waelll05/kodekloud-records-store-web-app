@@ -122,9 +122,9 @@ jobs:
       # Step 2: Uncomment to add dependency vulnerability scanning
       #👇 Uncomment this section in Step 2: Dependency Scanning
       - name: Install Security Tools
-         run: |
-           source venv/bin/activate
-           pip install pip-audit
+        run: |
+          source venv/bin/activate
+          pip install pip-audit
 
       - name: Scan for Vulnerable Dependencies
         run: |
